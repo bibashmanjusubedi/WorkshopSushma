@@ -70,26 +70,26 @@ class pca_class:
         img_vec = img_vec - new_mean
         return np.dot(self.new_bases.T, img_vec)
 
-    def recognize_face(self, new_cord_pca, k=0):
-        classes = len(self.no_of_elements)
-        start = 0
-        distances = []
-        for i in range(classes):
-            temp_imgs = self.new_coordinates[:, int(start): int(start + self.no_of_elements[i])]
-            mean_temp = np.mean(temp_imgs, 1)
-            start = start + self.no_of_elements[i]
-            dist = np.linalg.norm(new_cord_pca - mean_temp)
-            distances += [dist]
-        min = np.argmin(distances)
+    # def recognize_face(self, new_cord_pca, k=0):
+    #     classes = len(self.no_of_elements)
+    #     start = 0
+    #     distances = []
+    #     for i in range(classes):
+    #         temp_imgs = self.new_coordinates[:, int(start): int(start + self.no_of_elements[i])]
+    #         mean_temp = np.mean(temp_imgs, 1)
+    #         start = start + self.no_of_elements[i]
+    #         dist = np.linalg.norm(new_cord_pca - mean_temp)
+    #         distances += [dist]
+    #     min = np.argmin(distances)
 
-        #Temp Threshold
-        threshold = 100000
-        if distances[min] < threshold:
-            print("Person", k, ":", min, self.target_names[min])
-            return self.target_names[min]
-        else:
-            print("Person", k, ":", min, 'Unknown')
-            return 'Unknown'
+    #     #Temp Threshold
+    #     threshold = 100000
+    #     if distances[min] < threshold:
+    #         print("Person", k, ":", min, self.target_names[min])
+    #         return self.target_names[min]
+    #     else:
+    #         print("Person", k, ":", min, 'Unknown')
+    #         return 'Unknown'
 
 
 
