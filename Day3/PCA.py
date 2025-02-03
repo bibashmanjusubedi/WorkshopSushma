@@ -54,21 +54,21 @@ class pca_class:
         cv2.imshow("Eigen Face " + str(eig_no),  cv2.resize(np.array(ev_re, dtype = np.uint8),(200, 200)))
         cv2.waitKey()
 
-    def new_cord(self, name, img_height, img_width):
-        img = cv2.imread(name)
-        gray = cv2.resize(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), (img_height, img_width))
-        img_vec = np.asmatrix(gray).ravel()
-        img_vec = img_vec.T
-        new_mean = ((self.mean_face * len(self.y)) + img_vec)/(len(self.y) + 1)
-        img_vec = img_vec - new_mean
-        return np.dot(self.new_bases.T, img_vec)
+    # def new_cord(self, name, img_height, img_width):
+    #     img = cv2.imread(name)
+    #     gray = cv2.resize(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), (img_height, img_width))
+    #     img_vec = np.asmatrix(gray).ravel()
+    #     img_vec = img_vec.T
+    #     new_mean = ((self.mean_face * len(self.y)) + img_vec)/(len(self.y) + 1)
+    #     img_vec = img_vec - new_mean
+    #     return np.dot(self.new_bases.T, img_vec)
 
-    def new_cord_for_image(self, image):
-        img_vec = np.asmatrix(image).ravel()
-        img_vec = img_vec.T
-        new_mean = ((self.mean_face * len(self.y)) + img_vec) / (len(self.y) + 1)
-        img_vec = img_vec - new_mean
-        return np.dot(self.new_bases.T, img_vec)
+    # def new_cord_for_image(self, image):
+    #     img_vec = np.asmatrix(image).ravel()
+    #     img_vec = img_vec.T
+    #     new_mean = ((self.mean_face * len(self.y)) + img_vec) / (len(self.y) + 1)
+    #     img_vec = img_vec - new_mean
+    #     return np.dot(self.new_bases.T, img_vec)
 
     # def recognize_face(self, new_cord_pca, k=0):
     #     classes = len(self.no_of_elements)
