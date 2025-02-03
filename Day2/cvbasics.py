@@ -10,7 +10,7 @@ path = r'rajeshdai.jpg'
 image = cv2.imread(path)
 
 # Window name in which image is displayed
-window_name = 'image'
+window_name = 'rajeshsir'
 
 # Using cv2.imshow() method
 # Displaying the image
