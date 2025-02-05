@@ -54,42 +54,7 @@ class pca_class:
         cv2.imshow("Eigen Face " + str(eig_no),  cv2.resize(np.array(ev_re, dtype = np.uint8),(200, 200)))
         cv2.waitKey()
 
-    # def new_cord(self, name, img_height, img_width):
-    #     img = cv2.imread(name)
-    #     gray = cv2.resize(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), (img_height, img_width))
-    #     img_vec = np.asmatrix(gray).ravel()
-    #     img_vec = img_vec.T
-    #     new_mean = ((self.mean_face * len(self.y)) + img_vec)/(len(self.y) + 1)
-    #     img_vec = img_vec - new_mean
-    #     return np.dot(self.new_bases.T, img_vec)
 
-    # def new_cord_for_image(self, image):
-    #     img_vec = np.asmatrix(image).ravel()
-    #     img_vec = img_vec.T
-    #     new_mean = ((self.mean_face * len(self.y)) + img_vec) / (len(self.y) + 1)
-    #     img_vec = img_vec - new_mean
-    #     return np.dot(self.new_bases.T, img_vec)
-
-    # def recognize_face(self, new_cord_pca, k=0):
-    #     classes = len(self.no_of_elements)
-    #     start = 0
-    #     distances = []
-    #     for i in range(classes):
-    #         temp_imgs = self.new_coordinates[:, int(start): int(start + self.no_of_elements[i])]
-    #         mean_temp = np.mean(temp_imgs, 1)
-    #         start = start + self.no_of_elements[i]
-    #         dist = np.linalg.norm(new_cord_pca - mean_temp)
-    #         distances += [dist]
-    #     min = np.argmin(distances)
-
-    #     #Temp Threshold
-    #     threshold = 100000
-    #     if distances[min] < threshold:
-    #         print("Person", k, ":", min, self.target_names[min])
-    #         return self.target_names[min]
-    #     else:
-    #         print("Person", k, ":", min, 'Unknown')
-    #         return 'Unknown'
 
 
 
