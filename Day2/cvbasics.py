@@ -20,5 +20,9 @@ cv2.imshow(window_name, image)
 # (this is necessary to avoid Python kernel form crashing)
 cv2.waitKey(0)
 
+image = cv2.imread(path,0) #grayscale read
+cv2.imshow("b&w",image)
+cv2.waitKey()
+
 # closing all open windows
 cv2.destroyAllWindows()
