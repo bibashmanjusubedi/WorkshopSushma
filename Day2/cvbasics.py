@@ -26,7 +26,7 @@ cv2.imshow("b&w",image)
 cv2.waitKey()
 
 
-image2 = cv2.imread(r'ORL(old)\p1\3.jpg',0)
+image2 = cv2.imread(r'ORL(old)\p1\8.jpg',0)
 cv2.imshow("1st ORl image",image2)
 cv2.waitKey()
 print("1st orl image")
@@ -36,7 +36,8 @@ print(image2)
 print("new line \n")
 cv2.waitKey()
 
-image3 = cv2.imread(r'ORL(new)\s1\1.pgm',0)
+imageB = cv2.imread(r'ORL(new)\s1\1.pgm',0)
+image3=cv2.resize(imageB,(50,50))
 cv2.imshow("2nd ORL image",image3)
 cv2.waitKey()
 print("2nd orl image")
