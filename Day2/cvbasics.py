@@ -21,8 +21,27 @@ cv2.imshow(window_name, image)
 cv2.waitKey(0)
 
 image = cv2.imread(path,0) #grayscale read
+# print(image)
 cv2.imshow("b&w",image)
 cv2.waitKey()
+
+
+image2 = cv2.imread(r'ORL(old)\p1\3.jpg',0)
+cv2.imshow("1st ORl image",image2)
+cv2.waitKey()
+print("1st orl image")
+print(type(image2))
+print(image2)
+
+print("new line \n")
+cv2.waitKey()
+
+image3 = cv2.imread(r'ORL(new)\s1\1.pgm',0)
+cv2.imshow("2nd ORL image",image3)
+cv2.waitKey()
+print("2nd orl image")
+print(type(image3))
+print(image3)
 
 # closing all open windows
 cv2.destroyAllWindows()
