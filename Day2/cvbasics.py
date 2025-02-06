@@ -43,5 +43,9 @@ print("2nd orl image")
 print(type(image3))
 print(image3)
 
+print("shape of images")
+print(image2.shape)
+print(image3.shape)
+
 # closing all open windows
 cv2.destroyAllWindows()
