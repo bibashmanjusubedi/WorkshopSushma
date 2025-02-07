@@ -9,7 +9,7 @@ PCA Workshop at Sushma Godavari College
 ## Project Demo
 [Project Demo Video Link](https://www.dropbox.com/scl/fi/iyhdne2j4u4dlhsavlmq1/imgBlurrring.mp4?rlkey=hmqna0qy1vfdws62adi09p3ag&st=2qx93002&dl=0)
 ## Screenshots
-![original_Image](Day3/screenshots/original_Image.PNG)
+![original_Image](Day3/screenshots/originalImage.PNG)
 
 
 *originalImage*
