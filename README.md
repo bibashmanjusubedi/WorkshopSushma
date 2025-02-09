@@ -4,6 +4,7 @@ PCA Workshop at Sushma Godavari College
 * download the repository or clone
 * download anaconda
 * install **open-cv** using the command : ```pip install opencv-python```
+* install **scipy** using the command : ```pip install scipy```
 * navigate to the **Day3** folder
 * run : ```python img_blurring.py```
 ## Project Demo
