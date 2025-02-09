@@ -56,12 +56,17 @@ if algo_type == "pca":
 scaled_face = i_t_m_c.get_matrix()
 # print("scaled_face",scaled_face.shape)
 
+original_idx = 1
+
 if algo_type == "pca":
     # print("original Image : ",img_height, img_width )
-    cv2.imshow("Original Image" , cv2.resize(np.array(np.reshape(scaled_face[:,1],[img_height, img_width]), dtype = np.uint8),(200, 200)))
+    # cv2.imshow("Original Image" , cv2.resize(np.array(np.reshape(scaled_face[:,1],[img_height, img_width]), dtype = np.uint8),(200, 200)))
+    # cv2.waitKey()
+    # # Reshape and scale the face data
+    # original_image = np.reshape(scaled_face[:,original_idx], [img_height, img_width])
+    original_image = np.reshape(scaled_face[:, original_idx], [img_height, img_width])
+    cv2.imshow("Original Image", cv2.resize(original_image.astype(np.uint8), (200, 200)))
     cv2.waitKey()
-    # Reshape and scale the face data
-    original_image = np.reshape(scaled_face[:,1], [img_height, img_width])
     original_image_path = os.path.join(output_dir, "original_image.jpg")
     # Save the original image in JPG format
     cv2.imwrite(original_image_path, np.array(original_image, dtype=np.uint8))
@@ -71,7 +76,7 @@ if algo_type == "pca":
 
 #Algo
 if algo_type == "pca":
-    my_algo = pca_class(scaled_face, y, target_names, no_of_elements, 25)
+    my_algo = pca_class(scaled_face, y, target_names, no_of_elements, 70)
 
 
 
@@ -79,10 +84,15 @@ new_coordinates = my_algo.reduce_dim()
 
 
 if algo_type == "pca":
-    cv2.imshow("After PCA Image", cv2.resize(np.array(np.reshape(my_algo.original_data(new_coordinates[1, :]), [img_height, img_width]), dtype = np.uint8), (200, 200)))
+    
+    after_pca_image = my_algo.original_data(new_coordinates[original_idx, :])
+    after_pca_image = np.reshape(after_pca_image, [img_height, img_width])
+    cv2.imshow("After PCA Image", cv2.resize(after_pca_image.astype(np.uint8), (200, 200)))
     cv2.waitKey()
+    # cv2.imshow("After PCA Image", cv2.resize(np.array(np.reshape(my_algo.original_data(new_coordinates[1, :]), [img_height, img_width]), dtype = np.uint8), (200, 200)))
+    # cv2.waitKey()
     # Reshape and scale the after PCA data
-    after_pca_image = np.reshape(my_algo.original_data(new_coordinates[1, :]), [img_height, img_width])
+    # after_pca_image = np.reshape(my_algo.original_data(new_coordinates[1, :]), [img_height, img_width])
     afterpca_image_path = os.path.join(output_dir, "after_pca_image.jpg")
     # Save the after PCA image in JPG format
     cv2.imwrite(afterpca_image_path, np.array(after_pca_image, dtype=np.uint8))
