@@ -49,6 +49,11 @@ scaled_face = i_t_m_c.get_matrix()
 
 
 original_idx = 1
+# since no of training images = 8
+# and indexing starts at 0
+#  so (0 to 7) for one particular folder
+# (8 to 15) for another folder
+# (16 to 23 ) and so on 
 
 if algo_type == "pca":
     original_image = np.reshape(scaled_face[:, original_idx], [img_height, img_width])
