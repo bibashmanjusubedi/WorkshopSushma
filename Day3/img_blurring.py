@@ -76,8 +76,7 @@ if algo_type == "pca":
 
 
 new_coordinates = my_algo.reduce_dim()
-if algo_type == "pca":
-    my_algo.show_eigen_face(img_width, img_height, 50, 150, 0)
+
 
 if algo_type == "pca":
     cv2.imshow("After PCA Image", cv2.resize(np.array(np.reshape(my_algo.original_data(new_coordinates[1, :]), [img_height, img_width]), dtype = np.uint8), (200, 200)))

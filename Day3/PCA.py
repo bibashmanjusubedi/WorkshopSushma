@@ -44,17 +44,6 @@ class pca_class:
         return self.mean_face + (np.dot(self.new_bases, new_coordinates.T))
 
 
-    def show_eigen_face(self, height, width, min_pix_int, max_pix_int, eig_no):
-        ev = self.new_bases[:, eig_no:eig_no + 1]
-        min_orig = np.min(ev)
-        max_orig = np.max(ev)
-        ev = min_pix_int + (((max_pix_int - min_pix_int)/(max_orig - min_orig)) * ev)
-        print(ev.shape,"evshape")
-        ev_re = np.reshape(ev, (height, width))
-        cv2.imshow("Eigen Face " + str(eig_no),  cv2.resize(np.array(ev_re, dtype = np.uint8),(200, 200)))
-        cv2.waitKey()
-
-
 
 
 
