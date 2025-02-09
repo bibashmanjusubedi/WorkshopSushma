@@ -17,13 +17,10 @@ from images_to_matrix import images_to_matrix_class
 # from images_matrix_for_2d_square_pca import  images_to_matrix_class_for_two_d
 from dataset import dataset_class
 
-# Algo Type (pca, 2d-pca, 2d2-pca)
+# Algo Type
 algo_type = "pca"
 
 
-#for single image = 0
-#for video = 1
-#for group image = 2
 reco_type = 0
 
 #No of images For Training(Left will be used as testing Image)
@@ -48,31 +45,19 @@ img_width, img_height = 50, 50
 
 if algo_type == "pca":
     i_t_m_c = images_to_matrix_class(images_names, img_width, img_height)
-    # print("type of itmc:",type(i_t_m_c))
-    # print(i_t_m_c)
-# else:
-#     i_t_m_c = images_to_matrix_class_for_two_d(images_names, img_width, img_height)
 
 scaled_face = i_t_m_c.get_matrix()
-# print("scaled_face",scaled_face.shape)
+
 
 original_idx = 1
 
 if algo_type == "pca":
-    # print("original Image : ",img_height, img_width )
-    # cv2.imshow("Original Image" , cv2.resize(np.array(np.reshape(scaled_face[:,1],[img_height, img_width]), dtype = np.uint8),(200, 200)))
-    # cv2.waitKey()
-    # # Reshape and scale the face data
-    # original_image = np.reshape(scaled_face[:,original_idx], [img_height, img_width])
     original_image = np.reshape(scaled_face[:, original_idx], [img_height, img_width])
     cv2.imshow("Original Image", cv2.resize(original_image.astype(np.uint8), (200, 200)))
     cv2.waitKey()
     original_image_path = os.path.join(output_dir, "original_image.jpg")
     # Save the original image in JPG format
     cv2.imwrite(original_image_path, np.array(original_image, dtype=np.uint8))
-# else:
-#     cv2.imshow("Original Image" , cv2.resize(scaled_face[0],(200, 200)))
-#     cv2.waitKey()
 
 #Algo
 if algo_type == "pca":
@@ -89,16 +74,10 @@ if algo_type == "pca":
     after_pca_image = np.reshape(after_pca_image, [img_height, img_width])
     cv2.imshow("After PCA Image", cv2.resize(after_pca_image.astype(np.uint8), (200, 200)))
     cv2.waitKey()
-    # cv2.imshow("After PCA Image", cv2.resize(np.array(np.reshape(my_algo.original_data(new_coordinates[1, :]), [img_height, img_width]), dtype = np.uint8), (200, 200)))
-    # cv2.waitKey()
-    # Reshape and scale the after PCA data
-    # after_pca_image = np.reshape(my_algo.original_data(new_coordinates[1, :]), [img_height, img_width])
     afterpca_image_path = os.path.join(output_dir, "after_pca_image.jpg")
     # Save the after PCA image in JPG format
     cv2.imwrite(afterpca_image_path, np.array(after_pca_image, dtype=np.uint8))
-# else:
-#     cv2.imshow("After PCA Image", cv2.resize(np.array(my_algo.original_data(new_coordinates[0]), dtype = np.uint8), (200, 200)))
-#     cv2.waitKey()
+    
 
 
 training_time = time.process_time() - training_start_time
