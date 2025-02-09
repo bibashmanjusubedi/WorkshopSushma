@@ -21,7 +21,6 @@ from dataset import dataset_class
 algo_type = "pca"
 
 
-reco_type = 0
 
 #No of images For Training(Left will be used as testing Image)
 no_of_images_of_one_person = 8
@@ -77,7 +76,7 @@ if algo_type == "pca":
     afterpca_image_path = os.path.join(output_dir, "after_pca_image.jpg")
     # Save the after PCA image in JPG format
     cv2.imwrite(afterpca_image_path, np.array(after_pca_image, dtype=np.uint8))
-    
+
 
 
 training_time = time.process_time() - training_start_time
