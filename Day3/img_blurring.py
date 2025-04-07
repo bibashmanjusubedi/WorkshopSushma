@@ -65,7 +65,7 @@ if algo_type == "pca":
 
 #Algo
 if algo_type == "pca":
-    my_algo = pca_class(scaled_face, y, target_names, no_of_elements, 70)
+    my_algo = pca_class(scaled_face, y, target_names, no_of_elements, 25)
 
 
 
